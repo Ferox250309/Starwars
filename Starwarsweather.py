@@ -31,38 +31,38 @@ def getdata(text):
 if response.status_code == 200:
     temperature = getdata(text)
     if temperature < -10:
-    def add_bg_from_url():
-        st.markdown(
-            f"""
-            <style>
-            .stApp {{
-                background-image: url("https://cdnb.artstation.com/p/assets/images/images/001/793/559/large/jaromir-hrivnac-20160103iiiiiiiii.jpg?1452809128");
-                background-attachment: fixed;
-                background-size: cover
-            }}
-            </style>
-            """,
-            unsafe_allow_html=True
-    ) 
+        def add_bg_from_url():
+            st.markdown(
+                f"""
+                <style>
+                .stApp {{
+                    background-image: url("https://cdnb.artstation.com/p/assets/images/images/001/793/559/large/jaromir-hrivnac-20160103iiiiiiiii.jpg?1452809128");
+                    background-attachment: fixed;
+                    background-size: cover
+                }}
+                </style>
+                """,
+                unsafe_allow_html=True
+            ) 
 
         add_bg_from_url() 
         st.title("Feels like Hoth")
         st.write(str(temperature) + "°C. Weather like on Hoth")
         st.write("Better put on a jacket")
     if -10 <= temperature <= 43:
-    def add_bg_from_url():
-        st.markdown(
-            f"""
-            <style>
-            .stApp {{
-                background-image: url("https://comicyears.com/wp-content/uploads/2020/04/7.jpg");
-                background-attachment: fixed;
-                background-size: cover
-            }}
-            </style>
-            """,
-            unsafe_allow_html=True
-    )
+        def add_bg_from_url():
+            st.markdown(
+                f"""
+                <style>
+                .stApp {{
+                    background-image: url("https://comicyears.com/wp-content/uploads/2020/04/7.jpg");
+                    background-attachment: fixed;
+                    background-size: cover
+                }}
+                </style>
+                """,
+                unsafe_allow_html=True
+            )
 
         add_bg_from_url() 
         st.title("Feels like Tatooine")
