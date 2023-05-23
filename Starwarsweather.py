@@ -31,7 +31,7 @@ def getdata(text):
 if response.status_code == 200:
     temperature = getdata(text)
     if temperature < -10:
-        add_bg_from_url():
+    def add_bg_from_url():
             st.markdown(
                 f"""
                 <style>
