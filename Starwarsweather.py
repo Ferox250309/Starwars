@@ -31,7 +31,7 @@ def getdata(text):
 if response.status_code == 200:
     temperature = getdata(text)
     if temperature < -10:
-        def ui():
+        add_bg_from_url():
             st.markdown(
                 f"""
                 <style>
@@ -45,12 +45,12 @@ if response.status_code == 200:
                 unsafe_allow_html=True
              )
 
-        ui() 
+        add_bg_from_url() 
         st.title("Feels like Hoth")
         st.write(str(temperature) + "°C. Weather like on Hoth")
         st.write("Better put on a jacket")
     if -10 <= temperature <= 43:
-        def ui1():
+        def add_bg_from_url():
             st.markdown(
                 f"""
                 <style>
@@ -64,7 +64,7 @@ if response.status_code == 200:
                 unsafe_allow_html=True
              )
 
-        ui()
+        add_bg_from_url() 
         st.title("Feels like Tatooine")
         st.write(str(temperature) + "°C. Tatooine-like weather.")
 
