@@ -310,7 +310,7 @@ if response.status_code == 200:
             add_bg_from_url()
             st.title("Feels like Endor")
             st.write(str(temperature) + "°C. Endor-like weather.")
-    if 10 <= temperature <= 15:
+    if 10 <= temperature <= 19:
         if weathertoday == "Sunny":
             def add_bg_from_url():
                 st.markdown(
