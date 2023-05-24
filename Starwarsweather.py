@@ -327,7 +327,7 @@ if response.status_code == 200:
                 )
             add_bg_from_url()
             st.title("Feels like Naboo")
-            st.markdown("<h1 style='text-align: center; color: white;'>Naboo</h1>" , unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>" , unsafe_allow_html=True)
             st.write(str(temperature) + "°C. Naboo-like weather.")
         if weathertoday == "Cloudy":
             def add_bg_from_url():
@@ -345,7 +345,7 @@ if response.status_code == 200:
                 )
             add_bg_from_url()
             st.title("Feels like Naboo")
-            st.markdown("<h1 style='text-align: center; color: white;'>Naboo</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>", unsafe_allow_html=True)
             st.write(str(temperature) + "°C. Naboo-like weather.")
         if weathertoday == "Partly cloudy":
             def add_bg_from_url():
@@ -363,7 +363,7 @@ if response.status_code == 200:
                 )
             add_bg_from_url()
             st.title("Feels like Naboo")
-            st.markdown("<h1 style='text-align: center; color: white;'>Naboo</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>", unsafe_allow_html=True)
             st.write(str(temperature) + "°C. Naboo-like weather.")
         else:
             def add_bg_from_url():
@@ -381,5 +381,5 @@ if response.status_code == 200:
                 )
             add_bg_from_url()
             st.title("Feels like Naboo")
-            st.markdown("<h1 style='text-align: center; color: white;'>Naboo</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>", unsafe_allow_html=True)
             st.write(str(temperature) + "°C. Naboo-like weather.")
