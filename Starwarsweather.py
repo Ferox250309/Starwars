@@ -326,7 +326,6 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Naboo")
             st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>" , unsafe_allow_html=True)
             st.write(str(temperature) + "°C. Naboo-like weather.")
         if weathertoday == "Cloudy":
@@ -344,7 +343,6 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Naboo")
             st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>", unsafe_allow_html=True)
             st.write(str(temperature) + "°C. Naboo-like weather.")
         if weathertoday == "Partly cloudy":
@@ -362,7 +360,6 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Naboo")
             st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>", unsafe_allow_html=True)
             st.write(str(temperature) + "°C. Naboo-like weather.")
         else:
@@ -380,6 +377,5 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Naboo")
             st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>", unsafe_allow_html=True)
             st.write(str(temperature) + "°C. Naboo-like weather.")
