@@ -326,7 +326,12 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Naboo")
+            st.title("
+                     
+                     
+                     
+                     
+                                          Feels like Naboo")
             st.write(str(temperature) + "°C. Naboo-like weather.")
         if weathertoday == "Cloudy":
             def add_bg_from_url():
