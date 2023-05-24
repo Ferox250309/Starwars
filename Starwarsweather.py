@@ -3,11 +3,22 @@ import requests
 import json
 from PIL import Image
 
-st.set_page_config(page_title="Star Wars weather Aarhus", page_icon=":flag_denmark:", layout="wide")
+
+st.set_page_config(page_title="Star Wars weather Aarhus", page_icon=":flag_denmark:", layout="wide", initial_sidebar_state="expanded")
+
+
 
 st.subheader("Star Wars weather Aarhus")
 
+
+planet = " "
+st.markdown("<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 48vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 30;'>It's like</h1></div>", unsafe_allow_html=True)
+
+
+
 response = requests.get("https://api.weatherapi.com/v1/current.json?key=36fec4787ae4493db02202139232005&q=Aarhus&aqi=no")
+
+
 
 def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
@@ -32,12 +43,22 @@ def getweather(text):
     weather = y["current"]["condition"]["text"]
     return weather
 
+def hide_anchor_link():
+    st.markdown("""
+        <style>
+        .css-jn99sy {display: none}
+        </style>
+        """, unsafe_allow_html=True)
+
+
+
 if response.status_code == 200:
     temperature = getdata(text)
     weathertoday = getweather(text)
 
     if temperature < 0:
         if weathertoday == "Cloudy" or weathertoday == "Partly cloudy":
+            planet = "Hoth"
             st.markdown(
                 """
                 <style>
@@ -51,6 +72,7 @@ if response.status_code == 200:
                 unsafe_allow_html=True
             )
         elif weathertoday == "clear":
+            planet = "Coruscant"
             st.markdown(
                 """
                 <style>
@@ -64,6 +86,7 @@ if response.status_code == 200:
                 unsafe_allow_html=True
             )
         elif weathertoday == "rain" or "Patchy rain possible" or "Patchy light rain" or "Light rain" or "Moderate rain at times" or "Moderate rain" or "Heavy rain at times" or "Heavy rain" or "Light freezing rain" or "Moderate or heavy freezing rain" or "Light rain shower" or "Moderate or heavy rain shower" or "Torrential rain shower" or "Patchy light rain with thunder" or "Moderate or heavy rain with thunder":
+            planet = "Ilium"
             st.markdown(
                 """
                 <style>
@@ -77,6 +100,7 @@ if response.status_code == 200:
                 unsafe_allow_html=True
             )
         else:
+            planet = "Ilium"
             st.markdown(
                 """
                 <style>
@@ -90,11 +114,11 @@ if response.status_code == 200:
                 unsafe_allow_html=True
             )
 
-        st.title("Feels like Hoth")
-        st.write(str(temperature) + "°C. Weather like on Hoth")
+
         st.write("Better put on a jacket")
     if temperature >= 40:
         if weathertoday == "Sunny":
+            planet = "Tatooine"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -152,11 +176,11 @@ if response.status_code == 200:
                 )
 
         add_bg_from_url()
-        st.title("Feels like Tatooine")
-        st.write(str(temperature) + "°C. Tatooine-like weather.")
+
     if 0 <= temperature <= 5:
         weathertoday = getweather(text)
         if weathertoday == "Cloudy":
+            planet = "Rhen Var"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -171,9 +195,9 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Rhen Var")
-            st.write(str(temperature) + "°C. Ren Var-like weather.")
+
         if weathertoday == "Partly cloudy":
+            planet = "Rhen Var"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -188,9 +212,9 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Rhen Var")
-            st.write(str(temperature) + "°C. Ren Var-like weather.")
+
         if weathertoday == "Fog":
+            planet = "Rhen Var"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -205,9 +229,9 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Rhen Var")
-            st.write(str(temperature) + "°C. Ren Var-like weather.")
+
         if weathertoday == "Sunny":
+            planet = "Rhen Var"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -222,9 +246,9 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Rhen Var")
-            st.write(str(temperature) + "°C. Ren Var-like weather.")
+
         else:
+            planet = "Rhen Var"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -239,10 +263,10 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Rhen Var")
-            st.write(str(temperature) + "°C. Ren Var-like weather.")
+
     if 5 <= temperature <= 10:
         if weathertoday == "Sunny":
+            planet = "Endor"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -257,9 +281,9 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Endor")
-            st.write(str(temperature) + "°C. Endor-like weather.")
+
         if weathertoday == "Cloudy":
+            planet = "Endor"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -274,9 +298,9 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Endor")
-            st.write(str(temperature) + "°C. Endor-like weather.")
+
         if weathertoday == "Partly cloudy":
+            planet = "Endor"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -291,9 +315,9 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Endor")
-            st.write(str(temperature) + "°C. Endor-like weather.")
+
         else:
+            planet = "Endor"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -308,10 +332,10 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.title("Feels like Endor")
-            st.write(str(temperature) + "°C. Endor-like weather.")
+
     if 10 <= temperature <= 19:
         if weathertoday == "Sunny":
+            planet = "Naboo"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -326,9 +350,9 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>" , unsafe_allow_html=True)
-            st.write(str(temperature) + "°C. Naboo-like weather.")
+
         if weathertoday == "Cloudy":
+            planet = "Naboo"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -343,9 +367,9 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>", unsafe_allow_html=True)
-            st.write(str(temperature) + "°C. Naboo-like weather.")
+
         if weathertoday == "Partly cloudy":
+            planet = "Naboo"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -360,9 +384,9 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>", unsafe_allow_html=True)
-            st.write(str(temperature) + "°C. Naboo-like weather.")
+
         else:
+            planet = "Naboo"
             def add_bg_from_url():
                 st.markdown(
                     f"""
@@ -377,5 +401,7 @@ if response.status_code == 200:
                     unsafe_allow_html=True
                 )
             add_bg_from_url()
-            st.markdown("<h1 style='text-align: center; basefont: Times New Roman; color: white;'>Naboo</h1>", unsafe_allow_html=True)
-            st.write(str(temperature) + "°C. Naboo-like weather.")
+
+html_string = f"<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 1vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.43em; font-size: 115px; font-weight: 100; text-transform: uppercase;'>{planet}</h1></div>"
+st.markdown(html_string, unsafe_allow_html=True)
+
