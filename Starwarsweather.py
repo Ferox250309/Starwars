@@ -345,6 +345,16 @@ if response.status_code == 200:
                 )
             add_bg_from_url()
             st.title("Feels like Naboo")
+            title_alignment=
+            """
+            <style>
+            #the-title {
+            text-align: center
+            }
+            </style>
+            """
+            st.markdown(title_alignment, unsafe_allow_html=True)
+
             st.write(str(temperature) + "°C. Naboo-like weather.")
         if weathertoday == "Partly cloudy":
             def add_bg_from_url():
