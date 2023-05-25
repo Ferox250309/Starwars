@@ -16,7 +16,7 @@ st.markdown("<div style='display: flex; flex-direction: column; justify-content:
 
 response = requests.get("https://api.weatherapi.com/v1/current.json?key=36fec4787ae4493db02202139232005&q=Aarhus&aqi=no")
 
-celsius = temperature + "°C"
+celsius = str(temperature) + "°C"
 
 st.subheader(celsius)
 
