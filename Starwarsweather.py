@@ -8,9 +8,10 @@ st.set_page_config(page_icon=":flag_denmark:", layout="wide", initial_sidebar_st
 
 
 planet = " "
-st.markdown("<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 34vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 30;'>It's like</h1></div>", unsafe_allow_html=True)
 
 st.markdown("<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 70vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 30;'>Out there</h1></div>", unsafe_allow_html=True)
+
+st.markdown("<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 34vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 30;'>It's like</h1></div>", unsafe_allow_html=True)
 
 
 response = requests.get("https://api.weatherapi.com/v1/current.json?key=36fec4787ae4493db02202139232005&q=Aarhus&aqi=no")
