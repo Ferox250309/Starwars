@@ -474,5 +474,7 @@ if response.status_code == 200:
 html_string = f"<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 1vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.43em; font-size: 115px; font-weight: 100; text-transform: uppercase;'>{planet}</h1></div>"
 st.markdown(html_string, unsafe_allow_html=True)
 
+print(temperature)
+
 
 
