@@ -9,11 +9,18 @@ st.set_page_config(page_icon=":flag_denmark:", layout="wide", initial_sidebar_st
 
 planet = " "
 
-st.markdown("<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 40vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 43; text-transform: uppercase;'>It's like</h1></div>", unsafe_allow_html=True)
 
 
 response = requests.get("https://api.weatherapi.com/v1/current.json?key=36fec4787ae4493db02202139232005&q=Aarhus&aqi=no")
 
+css = '''
+<style>
+section.main > div:has(~ footer ) {
+    padding-bottom: 5px;
+}
+</style>
+'''
+st.markdown(css, unsafe_allow_html=True)
 
 def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
@@ -49,6 +56,10 @@ def hide_anchor_link():
 
 if response.status_code == 200:
     temperature = getdata(text)
+    celsius = str(temperature) + "°C"
+    st.markdown(f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 7vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 43; text-transform: uppercase;'>"   "{celsius}</h1></div>", unsafe_allow_html=True)
+    st.markdown("<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 35vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 43; text-transform: uppercase;'>It's like</h1></div>",unsafe_allow_html=True)
+
     weathertoday = getweather(text)
 
     if temperature < 0:
@@ -469,9 +480,4 @@ if response.status_code == 200:
 html_string = f"<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 1vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.43em; font-size: 115px; font-weight: 100; text-transform: uppercase;'>{planet}</h1></div>"
 st.markdown(html_string, unsafe_allow_html=True)
 
-
-
-celsius = str(temperature) + "°C"
-
-st.markdown(celsius)
 st.markdown("<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 34vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 43; text-transform: uppercase;'>Out there</h1></div>", unsafe_allow_html=True)
