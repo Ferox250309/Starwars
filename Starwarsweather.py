@@ -333,7 +333,7 @@ if response.status_code == 200:
                 )
             add_bg_from_url()
 
-    if 10 <= temperature <= 19:
+    if 10 <= temperature <= 14:
         if weathertoday == "Sunny":
             planet = "Naboo"
             def add_bg_from_url():
@@ -402,6 +402,77 @@ if response.status_code == 200:
                 )
             add_bg_from_url()
 
+    if 14 <= temperature <= 17:
+        if weathertoday == "Sunny":
+            planet = "Dagobah"
+            def add_bg_from_url():
+                st.markdown(
+                    f"""
+                    <style>
+                    .stApp {{
+                        background-image: url("https://github.com/Vroomfrondal/Star-Wars-Weather/blob/main/images/dagobah.jpg?raw=true");
+                        background-attachment: fixed;
+                        background-size: cover
+                    }}
+                    </style>
+                    """,
+                    unsafe_allow_html=True
+                )
+            add_bg_from_url()
+
+        if weathertoday == "Cloudy":
+            planet = "Dagobah"
+            def add_bg_from_url():
+                st.markdown(
+                    f"""
+                    <style>
+                    .stApp {{
+                        background-image: url("https://static.wikia.nocookie.net/starwars/images/b/b0/Zakuul.jpg/revision/latest/smart/width/250/height/250?cb=20200404182943");
+                        background-attachment: fixed;
+                        background-size: cover
+                    }}
+                    </style>
+                    """,
+                    unsafe_allow_html=True
+                )
+            add_bg_from_url()
+
+        if weathertoday == "Partly cloudy":
+            planet = "Dagobah"
+            def add_bg_from_url():
+                st.markdown(
+                    f"""
+                    <style>
+                    .stApp {{
+                        background-image: url("https://static.wikia.nocookie.net/starwars/images/b/b0/Zakuul.jpg/revision/latest/smart/width/250/height/250?cb=20200404182943");
+                        background-attachment: fixed;
+                        background-size: cover
+                    }}
+                    </style>
+                    """,
+                    unsafe_allow_html=True
+                )
+            add_bg_from_url()
+
+        else:
+            planet = "Dagobah"
+            def add_bg_from_url():
+                st.markdown(
+                    f"""
+                    <style>
+                    .stApp {{
+                        background-image: url("https://preview.redd.it/b3kayownpg481.png?width=640&crop=smart&auto=webp&s=4a47cb7ad92dfb73f42b3210fadd3ccec5cea0d5");
+                        background-attachment: fixed;
+                        background-size: cover
+                    }}
+                    </style>
+                    """,
+                    unsafe_allow_html=True
+                )
+            add_bg_from_url()
+
 html_string = f"<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 1vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.43em; font-size: 115px; font-weight: 100; text-transform: uppercase;'>{planet}</h1></div>"
 st.markdown(html_string, unsafe_allow_html=True)
+
+
 
