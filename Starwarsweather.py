@@ -7,8 +7,6 @@ from PIL import Image
 st.set_page_config(page_title="Star Wars weather Aarhus", page_icon=":flag_denmark:", layout="wide", initial_sidebar_state="expanded")
 
 
-st.subheader("Star Wars weather Aarhus")
-
 planet = " "
 st.markdown("<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 48vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 30;'>It's like</h1></div>", unsafe_allow_html=True)
 
@@ -475,5 +473,5 @@ st.markdown(html_string, unsafe_allow_html=True)
 
 celsius = str(temperature) + "°C"
 
-st.subheader(celsius)
+st.markdown(celsius)
 
