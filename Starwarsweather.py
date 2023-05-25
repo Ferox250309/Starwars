@@ -4,7 +4,7 @@ import json
 from PIL import Image
 
 
-st.set_page_config(page_title="Star Wars weather Aarhus", page_icon=":flag_denmark:", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_icon=":flag_denmark:", layout="wide", initial_sidebar_state="expanded")
 
 
 planet = " "
