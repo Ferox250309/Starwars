@@ -6,6 +6,9 @@ from PIL import Image
 st.set_page_config(page_icon=":flag_denmark:", layout="wide", initial_sidebar_state="expanded")
 col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
 
+
+
+
 with col6:
     if st.button(label="Today", key=None, help=None, on_click=None, args=None, kwargs=None, type="secondary", disabled=False, use_container_width=False):
         planet = " "
@@ -63,7 +66,7 @@ with col6:
             celsius = str(temperature) + "°C"
             with col2:
                 st.markdown(
-                    f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 7vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 43; text-transform: uppercase;'>{celsius}</h1></div>",
+                    f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 12vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 55; text-transform: uppercase;'>{celsius}</h1></div>",
                     unsafe_allow_html=True)
 
 
@@ -557,6 +560,7 @@ with col6:
             st.markdown(
                 "<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 65vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 43; text-transform: uppercase;'>It's like</h1></div>",
                 unsafe_allow_html=True)
+
         with col4:
             html_string = f"<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 85vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.43em; font-size: 115px; font-weight: 100; text-transform: uppercase;'>{planet}</h1></div>"
             st.markdown(html_string, unsafe_allow_html=True)
@@ -564,7 +568,6 @@ with col6:
             st.markdown(
                 "<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 105vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 43; text-transform: uppercase;'>Out there</h1></div>",
                 unsafe_allow_html=True)
-
 
 
 
@@ -651,7 +654,7 @@ with col7:
             celsius = str(temperature) + "°C"
             with col2:
                 st.markdown(
-                    f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 7vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 43; text-transform: uppercase;'>{celsius}</h1></div>",
+                    f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 12vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 55; text-transform: uppercase;'>{celsius}</h1></div>",
                     unsafe_allow_html=True)
             weathertoday = getweather2(text)
 
