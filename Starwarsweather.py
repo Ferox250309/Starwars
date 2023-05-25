@@ -476,5 +476,6 @@ st.markdown(html_string, unsafe_allow_html=True)
 
 print(temperature)
 
-
+st.subheader("Star Wars weather Aarhus")
+st.subheader(temperature)
 
