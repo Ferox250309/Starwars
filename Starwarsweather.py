@@ -57,7 +57,7 @@ def hide_anchor_link():
 if response.status_code == 200:
     temperature = getdata(text)
     celsius = str(temperature) + "°C"
-    st.markdown(f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 7vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 43; text-transform: uppercase;'>"   "{celsius}</h1></div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 7vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 43; text-transform: uppercase;'>{celsius}</h1></div>", unsafe_allow_html=True)
     st.markdown("<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 35vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 43; text-transform: uppercase;'>It's like</h1></div>",unsafe_allow_html=True)
 
     weathertoday = getweather(text)
