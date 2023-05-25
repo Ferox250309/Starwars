@@ -7,6 +7,7 @@ from PIL import Image
 st.set_page_config(page_title="Star Wars weather Aarhus", page_icon=":flag_denmark:", layout="wide", initial_sidebar_state="expanded")
 
 
+st.subheader("Star Wars weather Aarhus")
 
 planet = " "
 st.markdown("<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 48vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 30;'>It's like</h1></div>", unsafe_allow_html=True)
@@ -15,7 +16,7 @@ st.markdown("<div style='display: flex; flex-direction: column; justify-content:
 
 response = requests.get("https://api.weatherapi.com/v1/current.json?key=36fec4787ae4493db02202139232005&q=Aarhus&aqi=no")
 
-
+st.subheader(temperature+°C)
 
 def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
@@ -471,6 +472,6 @@ if response.status_code == 200:
 html_string = f"<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 1vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.43em; font-size: 115px; font-weight: 100; text-transform: uppercase;'>{planet}</h1></div>"
 st.markdown(html_string, unsafe_allow_html=True)
 
-st.subheader("Star Wars weather Aarhus")
+
 st.subheader(temperature)
 
