@@ -60,11 +60,11 @@ with col6:
 
         if response.status_code == 200:
             temperature = getdata(text)
+            celsius = str(temperature) + "°C"
             with col2:
-                celsius = str(temperature) + "°C"
-            st.markdown(
-                f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 7vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 43; text-transform: uppercase;'>{celsius}</h1></div>",
-                unsafe_allow_html=True)
+                st.markdown(
+                    f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 7vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 43; text-transform: uppercase;'>{celsius}</h1></div>",
+                    unsafe_allow_html=True)
 
 
             weathertoday = getweather(text)
@@ -648,12 +648,11 @@ with col7:
 
         if response.status_code == 200:
             temperature = getdata2(text)
+            celsius = str(temperature) + "°C"
             with col2:
-                celsius = str(temperature) + "°C"
-            st.markdown(
-                f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 7vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 43; text-transform: uppercase;'>{celsius}</h1></div>",
-                unsafe_allow_html=True)
-
+                st.markdown(
+                    f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 7vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 43; text-transform: uppercase;'>{celsius}</h1></div>",
+                    unsafe_allow_html=True)
             weathertoday = getweather2(text)
 
             if temperature < 0:
