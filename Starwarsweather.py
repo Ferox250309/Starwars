@@ -599,9 +599,9 @@ with col7:
     if st.button(label="Tomorrow", key=None, help=None, on_click=None, args=None, kwargs=None, type="secondary",
                  disabled=False, use_container_width=False):
 
-        planet = " "
+        planet1 = " "
 
-        response = requests.get(
+        response1 = requests.get(
             "https://api.weatherapi.com/v1/forecast.json?key=36fec4787ae4493db02202139232005&q=Aarhus&days=1&aqi=no&alerts=no")
 
         css = '''
@@ -615,30 +615,32 @@ with col7:
 
 
         def jprint(obj):
-            text = json.dumps(obj, sort_keys=True, indent=4)
-            return text
+            data1 = response1.json()
+            global json_string  # Changed the variable name to avoid reusing "text"
+            json_string = json.dumps(data1, sort_keys=True, indent=4)
+            return json_string
 
 
-        if response.status_code == 200:
-            data = response.json()
-            text = jprint(data)  # Print the JSON data and get the text variable
+        if response1.status_code == 200:
+            data = response1.json()
+            json_string = jprint(data)  # Storing the JSON string in a different variable
 
-        elif response.status_code == 404:
+        elif response1.status_code == 404:
             st.error("Unable to reach URL.")
         else:
             st.error("Unable to connect to API or retrieve data.")
 
 
-        def getdata2(text):
-            p = json.loads(text)
-            temp = p["current"]["temp_c"]
-            return temp
+        def getdata2(text1):
+            p = json.loads(text1)
+            temp1 = p["current"]["temp_c"]
+            return temp1
 
 
-        def getweather2(text):
-            p = json.loads(text)
-            weather = p["current"]["condition"]["text"]
-            return weather
+        def getweather2(text2):
+            p = json.loads(text2)
+            weather2 = p["current"]["condition"]["text"]
+            return weather2
 
 
         def hide_anchor_link():
@@ -649,18 +651,18 @@ with col7:
                         """, unsafe_allow_html=True)
 
 
-        if response.status_code == 200:
-            temperature = getdata2(text)
-            celsius = str(temperature) + "°C"
+        if response1.status_code == 200:
+            temperature2 = getdata2(json_string)  # Using the updated variable name
+            celsius = str(temperature2) + "°C"
             with col2:
                 st.markdown(
                     f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 12vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 55; text-transform: uppercase;'>{celsius}</h1></div>",
                     unsafe_allow_html=True)
-            weathertoday1 = getweather2(text)
+            weathertoday1 = getweather2(json_string)  # Using the updated variable name
 
-            if temperature < 0:
+            if temperature2 < 0:
                 if weathertoday1 == "Cloudy" or weathertoday1 == "Partly cloudy":
-                    planet = "Hoth"
+                    planet1 = "Hoth"
                     st.markdown(
                         """
                         <style>
@@ -674,7 +676,7 @@ with col7:
                         unsafe_allow_html=True
                     )
                 elif weathertoday1 == "clear":
-                    planet = "Coruscant"
+                    planet1 = "Coruscant"
                     st.markdown(
                         """
                         <style>
@@ -688,7 +690,7 @@ with col7:
                         unsafe_allow_html=True
                     )
                 elif weathertoday1 == "rain" or "Patchy rain possible" or "Patchy light rain" or "Light rain" or "Moderate rain at times" or "Moderate rain" or "Heavy rain at times" or "Heavy rain" or "Light freezing rain" or "Moderate or heavy freezing rain" or "Light rain shower" or "Moderate or heavy rain shower" or "Torrential rain shower" or "Patchy light rain with thunder" or "Moderate or heavy rain with thunder":
-                    planet = "Ilium"
+                    planet1 = "Ilium"
                     st.markdown(
                         """
                         <style>
@@ -702,7 +704,7 @@ with col7:
                         unsafe_allow_html=True
                     )
                 else:
-                    planet = "Ilium"
+                    planet1 = "Ilium"
                     st.markdown(
                         """
                         <style>
@@ -717,9 +719,9 @@ with col7:
                     )
 
                 st.write("Better put on a jacket")
-            if temperature >= 40:
+            if temperature2 >= 40:
                 if weathertoday1 == "Sunny":
-                    planet = "Tatooine"
+                    planet1 = "Tatooine"
 
 
                     def add_bg_from_url():
@@ -780,10 +782,10 @@ with col7:
 
                 add_bg_from_url()
 
-            if 0 <= temperature <= 5:
+            if 0 <= temperature2 <= 5:
                 weathertoday1 = getweather(text)
                 if weathertoday == "Cloudy":
-                    planet = "Rhen Var"
+                    planet1 = "Rhen Var"
 
 
                     def add_bg_from_url():
@@ -804,7 +806,7 @@ with col7:
                     add_bg_from_url()
 
                 if weathertoday1 == "Partly cloudy":
-                    planet = "Rhen Var"
+                    planet1 = "Rhen Var"
 
 
                     def add_bg_from_url():
@@ -825,7 +827,7 @@ with col7:
                     add_bg_from_url()
 
                 if weathertoday1 == "Fog":
-                    planet = "Rhen Var"
+                    planet1 = "Rhen Var"
 
 
                     def add_bg_from_url():
@@ -846,7 +848,7 @@ with col7:
                     add_bg_from_url()
 
                 if weathertoday1 == "Sunny":
-                    planet = "Rhen Var"
+                    planet1 = "Rhen Var"
                     def add_bg_from_url():
                         st.markdown(
                             f"""
@@ -865,7 +867,7 @@ with col7:
                     add_bg_from_url()
 
                 else:
-                    planet = "Rhen Var"
+                    planet1 = "Rhen Var"
                     def add_bg_from_url():
                         st.markdown(
                             f"""
@@ -883,9 +885,9 @@ with col7:
 
                     add_bg_from_url()
 
-            if 5 <= temperature <= 10:
+            if 5 <= temperature2 <= 10:
                 if weathertoday1 == "Sunny":
-                    planet = "Endor"
+                    planet1 = "Endor"
 
 
                     def add_bg_from_url():
@@ -906,7 +908,7 @@ with col7:
                     add_bg_from_url()
 
                 if weathertoday1 == "Cloudy":
-                    planet = "Endor"
+                    planet1 = "Endor"
 
 
                     def add_bg_from_url():
@@ -927,7 +929,7 @@ with col7:
                     add_bg_from_url()
 
                 if weathertoday1 == "Partly cloudy":
-                    planet = "Endor"
+                    planet1 = "Endor"
 
 
                     def add_bg_from_url():
@@ -948,7 +950,7 @@ with col7:
                     add_bg_from_url()
 
                 else:
-                    planet = "Endor"
+                    planet1 = "Endor"
 
 
                     def add_bg_from_url():
@@ -968,9 +970,9 @@ with col7:
 
                     add_bg_from_url()
 
-            if 10 <= temperature <= 14:
+            if 10 <= temperature2 <= 14:
                 if weathertoday1 == "Sunny":
-                    planet = "Naboo"
+                    planet1 = "Naboo"
 
 
                     def add_bg_from_url():
@@ -991,7 +993,7 @@ with col7:
                     add_bg_from_url()
 
                 if weathertoday1 == "Cloudy":
-                    planet = "Naboo"
+                    planet1 = "Naboo"
 
 
                     def add_bg_from_url():
@@ -1012,7 +1014,7 @@ with col7:
                     add_bg_from_url()
 
                 if weathertoday1 == "Partly cloudy":
-                    planet = "Naboo"
+                    planet1 = "Naboo"
 
 
                     def add_bg_from_url():
@@ -1033,7 +1035,7 @@ with col7:
                     add_bg_from_url()
 
                 else:
-                    planet = "Naboo"
+                    planet1 = "Naboo"
 
 
                     def add_bg_from_url():
@@ -1053,9 +1055,9 @@ with col7:
 
                     add_bg_from_url()
 
-            if 14 <= temperature <= 17:
+            if 14 <= temperature2 <= 17:
                 if weathertoday1 == "Sunny":
-                    planet = "Dagobah"
+                    planet1 = "Dagobah"
 
 
                     def add_bg_from_url():
@@ -1076,7 +1078,7 @@ with col7:
                     add_bg_from_url()
 
                 if weathertoday1 == "Cloudy":
-                    planet = "Dagobah"
+                    planet1 = "Dagobah"
 
 
                     def add_bg_from_url():
@@ -1097,7 +1099,7 @@ with col7:
                     add_bg_from_url()
 
                 if weathertoday1 == "Partly cloudy":
-                    planet = "Dagobah"
+                    planet1 = "Dagobah"
 
 
                     def add_bg_from_url():
@@ -1118,7 +1120,7 @@ with col7:
                     add_bg_from_url()
 
                 else:
-                    planet = "Dagobah"
+                    planet1 = "Dagobah"
 
 
                     def add_bg_from_url():
@@ -1143,7 +1145,7 @@ with col7:
                 "<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 65vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 30px; font-weight: 43; text-transform: uppercase;'>It's like</h1></div>",
                 unsafe_allow_html=True)
         with col4:
-            html_string = f"<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 85vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.43em; font-size: 115px; font-weight: 100; text-transform: uppercase;'>{planet}</h1></div>"
+            html_string = f"<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 85vh;'><h1 style='text-align: center; color: white; font-family: Arial; letter-spacing: 0.43em; font-size: 115px; font-weight: 100; text-transform: uppercase;'>{planet1}</h1></div>"
             st.markdown(html_string, unsafe_allow_html=True)
         with col5:
             st.markdown(
