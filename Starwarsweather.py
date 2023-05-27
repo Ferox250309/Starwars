@@ -656,10 +656,10 @@ with col7:
                 st.markdown(
                     f"<div style='display: flex; flex-direction: column; justify-content: left; align-items: left; height: 12vh;'><h1 style='text-align: left; color: white; font-family: Arial; letter-spacing: 0.14em; font-size: 25px; font-weight: 55; text-transform: uppercase;'>{celsius}</h1></div>",
                     unsafe_allow_html=True)
-            weathertoday = getweather2(text)
+            weathertoday1 = getweather2(text)
 
             if temperature < 0:
-                if weathertoday == "Cloudy" or weathertoday == "Partly cloudy":
+                if weathertoday1 == "Cloudy" or weathertoday1 == "Partly cloudy":
                     planet = "Hoth"
                     st.markdown(
                         """
@@ -673,7 +673,7 @@ with col7:
                         """,
                         unsafe_allow_html=True
                     )
-                elif weathertoday == "clear":
+                elif weathertoday1 == "clear":
                     planet = "Coruscant"
                     st.markdown(
                         """
@@ -687,7 +687,7 @@ with col7:
                         """,
                         unsafe_allow_html=True
                     )
-                elif weathertoday == "rain" or "Patchy rain possible" or "Patchy light rain" or "Light rain" or "Moderate rain at times" or "Moderate rain" or "Heavy rain at times" or "Heavy rain" or "Light freezing rain" or "Moderate or heavy freezing rain" or "Light rain shower" or "Moderate or heavy rain shower" or "Torrential rain shower" or "Patchy light rain with thunder" or "Moderate or heavy rain with thunder":
+                elif weathertoday1 == "rain" or "Patchy rain possible" or "Patchy light rain" or "Light rain" or "Moderate rain at times" or "Moderate rain" or "Heavy rain at times" or "Heavy rain" or "Light freezing rain" or "Moderate or heavy freezing rain" or "Light rain shower" or "Moderate or heavy rain shower" or "Torrential rain shower" or "Patchy light rain with thunder" or "Moderate or heavy rain with thunder":
                     planet = "Ilium"
                     st.markdown(
                         """
@@ -718,7 +718,7 @@ with col7:
 
                 st.write("Better put on a jacket")
             if temperature >= 40:
-                if weathertoday == "Sunny":
+                if weathertoday1 == "Sunny":
                     planet = "Tatooine"
 
 
@@ -735,7 +735,7 @@ with col7:
                                     """,
                             unsafe_allow_html=True
                         )
-                if weathertoday == "Cloudy":
+                if weathertoday1 == "Cloudy":
                     def add_bg_from_url():
                         st.markdown(
                             f"""
@@ -749,7 +749,7 @@ with col7:
                                     """,
                             unsafe_allow_html=True
                         )
-                if weathertoday == "Partly cloudy":
+                if weathertoday1 == "Partly cloudy":
                     def add_bg_from_url():
                         st.markdown(
                             f"""
@@ -781,7 +781,7 @@ with col7:
                 add_bg_from_url()
 
             if 0 <= temperature <= 5:
-                weathertoday = getweather(text)
+                weathertoday1 = getweather(text)
                 if weathertoday == "Cloudy":
                     planet = "Rhen Var"
 
@@ -803,7 +803,7 @@ with col7:
 
                     add_bg_from_url()
 
-                if weathertoday == "Partly cloudy":
+                if weathertoday1 == "Partly cloudy":
                     planet = "Rhen Var"
 
 
@@ -824,7 +824,7 @@ with col7:
 
                     add_bg_from_url()
 
-                if weathertoday == "Fog":
+                if weathertoday1 == "Fog":
                     planet = "Rhen Var"
 
 
@@ -845,10 +845,8 @@ with col7:
 
                     add_bg_from_url()
 
-                if weathertoday == "Sunny":
+                if weathertoday1 == "Sunny":
                     planet = "Rhen Var"
-
-
                     def add_bg_from_url():
                         st.markdown(
                             f"""
@@ -868,8 +866,6 @@ with col7:
 
                 else:
                     planet = "Rhen Var"
-
-
                     def add_bg_from_url():
                         st.markdown(
                             f"""
@@ -888,7 +884,7 @@ with col7:
                     add_bg_from_url()
 
             if 5 <= temperature <= 10:
-                if weathertoday == "Sunny":
+                if weathertoday1 == "Sunny":
                     planet = "Endor"
 
 
@@ -909,7 +905,7 @@ with col7:
 
                     add_bg_from_url()
 
-                if weathertoday == "Cloudy":
+                if weathertoday1 == "Cloudy":
                     planet = "Endor"
 
 
@@ -930,7 +926,7 @@ with col7:
 
                     add_bg_from_url()
 
-                if weathertoday == "Partly cloudy":
+                if weathertoday1 == "Partly cloudy":
                     planet = "Endor"
 
 
@@ -973,7 +969,7 @@ with col7:
                     add_bg_from_url()
 
             if 10 <= temperature <= 14:
-                if weathertoday == "Sunny":
+                if weathertoday1 == "Sunny":
                     planet = "Naboo"
 
 
@@ -994,7 +990,7 @@ with col7:
 
                     add_bg_from_url()
 
-                if weathertoday == "Cloudy":
+                if weathertoday1 == "Cloudy":
                     planet = "Naboo"
 
 
@@ -1015,7 +1011,7 @@ with col7:
 
                     add_bg_from_url()
 
-                if weathertoday == "Partly cloudy":
+                if weathertoday1 == "Partly cloudy":
                     planet = "Naboo"
 
 
@@ -1058,7 +1054,7 @@ with col7:
                     add_bg_from_url()
 
             if 14 <= temperature <= 17:
-                if weathertoday == "Sunny":
+                if weathertoday1 == "Sunny":
                     planet = "Dagobah"
 
 
@@ -1079,7 +1075,7 @@ with col7:
 
                     add_bg_from_url()
 
-                if weathertoday == "Cloudy":
+                if weathertoday1 == "Cloudy":
                     planet = "Dagobah"
 
 
@@ -1100,7 +1096,7 @@ with col7:
 
                     add_bg_from_url()
 
-                if weathertoday == "Partly cloudy":
+                if weathertoday1 == "Partly cloudy":
                     planet = "Dagobah"
 
 
