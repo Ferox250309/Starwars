@@ -630,14 +630,14 @@ with col7:
 
 
         def getdata2(text):
-            y = json.loads(text)
-            temp = y["current"]["temp_c"]
+            p = json.loads(text)
+            temp = p["current"]["temp_c"]
             return temp
 
 
         def getweather2(text):
-            y = json.loads(text)
-            weather = y["current"]["condition"]["text"]
+            p = json.loads(text)
+            weather = p["current"]["condition"]["text"]
             return weather
 
 
